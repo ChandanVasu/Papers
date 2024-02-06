@@ -1,0 +1,121 @@
+.elementor-list-post {
+    /* display: list-item; */
+}
+
+.elementor-list-post .elementor-list-post-item {
+    display: flex;
+    background-color: #f3f8f6;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    height: auto;
+    width: 100%;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.elementor-list-post .elementor-list-post-thumbnail img {
+    border-radius: 10px;
+    width: 218px;
+    height: 128px;
+    object-fit: fill;
+
+}
+
+.elementor-list-post .elementor-list-content-wrap {
+    flex: 1; /* Take remaining width */
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.elementor-list-post h1 a {
+    font-weight: bold;
+    font-size: 18px;
+    color: #100236;
+    line-height: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: -17px;
+    margin-top: -17px;
+}
+
+.elementor-list-post-excerpt {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.elementor-list-author-info {
+    justify-content: start;
+    align-items: center;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.elementor-list-post .elementor-list-content-wrap .elementor-list-author-info img {
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-right: 10px;
+   
+}
+
+.elementor-list-post-category {
+    display: none;
+}
+
+/* Media Query for Small Screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+
+    
+    .elementor-list-post .elementor-list-post-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 5px; /* Adjust padding for smaller screens */
+        margin: 5px; /* Adjust margin for smaller screens */
+    }
+
+    .elementor-list-post .elementor-list-post-thumbnail img {
+        width: 100px; /* Make the thumbnail fill the container width */
+        height: 61px; /* Maintain aspect ratio */
+        margin-bottom: 5px;
+        border-radius: 5px; /* Add some space between thumbnail and content */
+    }
+
+    .elementor-list-post .elementor-list-content-wrap {
+        padding-left: 10px;
+        padding-right: 5px; /* Adjust padding for smaller screens */
+    }
+
+    .elementor-list-post h1 a {
+        font-size: 16px; /* Decrease font size for smaller screens */
+    }
+
+    .elementor-list-post-excerpt {
+        display: none;
+        -webkit-line-clamp: 2; /* Show fewer lines for excerpt on smaller screens */
+    }
+
+    .elementor-list-post .elementor-list-content-wrap .elementor-list-author-info img {
+        height: 20px; /* Decrease avatar size for smaller screens */
+        width: 20px;
+        display: none;
+
+        
+    }
+
+    .elementor-list-author-info {
+        font-size: 10px;
+        justify-content: start;
+        align-items: center;
+        display: flex;
+    }
+    
+}
+

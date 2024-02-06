@@ -1,0 +1,284 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+.container {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    justify-content: start;
+}
+
+
+
+a:-webkit-any-link {
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content-area {
+    width: 70%;
+    padding: 15px;
+    box-sizing: border-box;
+    float: left;
+    margin-top: 20px;
+}
+
+.sidebar-area {
+    width: 25%;
+    /* Adjust the width as needed */
+    padding: 15px;
+    box-sizing: border-box;
+    float: right;
+}
+
+.content-area .site-main {
+    margin: 10px;
+    padding: 5px;
+}
+
+.content-area h1 {
+    font-size: 18px;
+}
+
+.single-post .content-area {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f3f8f6;
+    border: 1px solid #ddd;
+    line-height: 1.5;
+}
+
+.single-post .custom-thumbnail-class,
+.single-post img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.post-grid {
+    margin: 0;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.post-grid-item {
+    margin: 15px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Apply styles only for screens with a maximum width of 768 pixels */
+@media (max-width: 768px) {
+
+    .single-post .custom-thumbnail-class,
+    .single-post img {
+        height: auto;
+    }
+
+    .content-area .site-main {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-area,
+    .sidebar-area {
+        width: 100%;
+        float: none;
+        margin: 0;
+    }
+
+    .sidebar-area {
+        display: none;
+    }
+}
+
+/* Style for the post grid container */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+/* Style for each post grid item */
+/* .post-grid-item {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px rgba(20, 6, 16, 0.1);
+    transition: transform 0.3s ease-in-out;
+} */
+
+
+
+.post-grid-item:hover {
+    transform: scale(1.05);
+}
+
+/* Style for post thumbnails */
+.post-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    /* Rounded corners only at the top */
+}
+
+/* Style for post titles */
+.post-grid-item h2 {
+    color: #000;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Style for post excerpts */
+.post-content {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Style for post meta data */
+.single-post .author-info {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.single-post .author-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.single-post .author-name,
+.single-post .post-date {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #1b055e;
+    font-weight: bold;
+}
+
+.single-post .author-info .author-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.single-post .social-media-links img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+
+@media (max-width: 768px) {
+
+    .single-post .author-name,
+    .single-post .post-date {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 10px;
+        color: #1b055e;
+        font-weight: bold;
+    }
+
+    .single-post .social-media-links img {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* Style for the post grid container */
+.post-grids {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+/* Style for each post grid item */
+.post-grid-items {
+    margin: 15px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+.post-grids-items:hover {
+    transform: scale(1.05);
+}
+
+/* Style for post thumbnails */
+.post-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    /* Rounded corners only at the top */
+}
+
+/* Style for post titles */
+.post-grid-items h2 {
+    color: #000;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Style for post excerpts */
+.post-content {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.simple-post {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+@media (max-width: 768px) {
+    .simple-post {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .post-grid-items {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
