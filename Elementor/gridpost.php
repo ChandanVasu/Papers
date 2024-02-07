@@ -6,7 +6,6 @@ if (!defined('ABSPATH')) {
 
 class Custom_Grid_Post_Widget extends \Elementor\Widget_Base
 {
-
     public function get_name()
     {
         return 'custom_grid_post';
@@ -192,53 +191,75 @@ class Custom_Grid_Post_Widget extends \Elementor\Widget_Base
 
         $query = new WP_Query($query_args);
 
+        // Start output buffering
+        ob_start();
+
         // Check if there are posts
         if ($query->have_posts()) {
-            echo '<div class="elementor-grid-post ">';
-
+        ?>
+            <div class="elementor-grid-post ">
+            <?php
             // Start the loop
             while ($query->have_posts()) {
                 $query->the_post();
-
-                echo '<div class="elementor-grid-post-item">';
-
-                if (has_post_thumbnail() && $settings['hide_image'] !== 'yes') {
-                    echo '<a href="' . get_permalink() . '" class="elementor-grid-post-thumbnail">';
-                    echo get_the_post_thumbnail();
-                    $categories = get_the_category();
-                    if (!empty($categories)) {
-                        $category = $categories[0];
-                        echo '<span class="elementor-grid-post-category">' . esc_html($category->name) . '</span>';
+            ?>
+                <div class="elementor-grid-post-item">
+                    <?php
+                    if (has_post_thumbnail() && isset($settings['hide_image']) && $settings['hide_image'] !== 'yes') {
+                    ?>
+                        <a href="<?php echo get_permalink(); ?>" class="elementor-grid-post-thumbnail">
+                            <?php echo get_the_post_thumbnail(); ?>
+                            <?php
+                            $categories = get_the_category();
+                            if (!empty($categories)) {
+                                $category = $categories[0];
+                            ?>
+                                <span class="elementor-grid-post-category"><?php echo esc_html($category->name); ?></span>
+                            <?php
+                            }
+                            ?>
+                        </a>
+                    <?php
                     }
-                    echo '</a>';
-                }
-
-                echo '<h1><a href="' . get_permalink() . '" style="' . $this->get_render_attribute_string('title_typography') . '">' . get_the_title() . '</a></h1>';
-
-                $author_id = get_the_author_meta('ID');
-                $author_avatar = get_avatar_url($author_id, array('size' => 50));
-                $author_name = get_the_author_meta('display_name');
-                if ($settings['hide_meta'] !== 'yes') {
-                    echo '<div class="elementor-grid-author-info" style="' . $this->get_render_attribute_string('author_meta_typography') . '">';
-                    echo '<img src="' . esc_url($author_avatar) . '" alt="' . esc_attr($author_name) . '" class="elementor-grid-author-avatar" />';
-                    echo '<span class="elementor-grid-author-name ">' . esc_html($author_name) . '</span>';
-                    echo '<span class="elementor-grid-post-date"> ⏱️ ' . get_the_date("j F Y") . '</span>';
-                    echo '</div>';
-                }
-
-                if ($settings['hide_excerpt'] !== 'yes') {
-                    echo '<div class="elementor-grid-post-content" style="' . $this->get_render_attribute_string('post_content_typography') . '">' . get_the_excerpt() . '</div>';
-                }
-
-                echo '</div>';
+                    ?>
+                    <h1><a href="<?php echo get_permalink(); ?>" style="<?php echo $this->get_render_attribute_string('title_typography'); ?>"><?php echo get_the_title(); ?></a></h1>
+                    <?php
+                    $author_id = get_the_author_meta('ID');
+                    $author_avatar = get_avatar_url($author_id, array('size' => 50));
+                    $author_name = get_the_author_meta('display_name');
+                    if (isset($settings['hide_meta']) && $settings['hide_meta'] !== 'yes') {
+                    ?>
+                        <div class="elementor-grid-author-info" style="<?php echo $this->get_render_attribute_string('author_meta_typography'); ?>">
+                            <img src="<?php echo esc_url($author_avatar); ?>" alt="<?php echo esc_attr($author_name); ?>" class="elementor-grid-author-avatar" />
+                            <span class="elementor-grid-author-name "><?php echo esc_html($author_name); ?></span>
+                            <span class="elementor-grid-post-date"> ⏱️ <?php echo get_the_date("j F Y"); ?></span>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <?php
+                     if ($settings['hide_excerpt'] !== 'yes') {
+                    ?>
+                        <div class="elementor-grid-post-content" style="<?php echo $this->get_render_attribute_string('post_content_typography'); ?>"><?php echo get_the_excerpt(); ?></div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            <?php
             }
-
-            echo '</div>';
-
+            ?>
+            </div>
+        <?php
             wp_reset_postdata();
         } else {
             echo '<p>No posts found.</p>';
         }
+
+        // Get the buffered content and clean the buffer
+        $rendered_content = ob_get_clean();
+
+        // Output the rendered content
+        echo $rendered_content;
     }
 
     private function get_all_categories()
