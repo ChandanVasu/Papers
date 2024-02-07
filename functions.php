@@ -53,6 +53,14 @@ if (!function_exists('register_custom_list_post_widget')) {
     add_action('elementor/widgets/register', 'register_custom_list_post_widget');
 }
 
+if (!function_exists('register_custom_author_widget')) {
+    function register_custom_author_widget($widgets_manager) {
+        require_once(__DIR__ . '/Elementor/author-list.php');
+        $widgets_manager->register_widget_type(new \Author_List_Widget());
+    }
+
+    add_action('elementor/widgets/register', 'register_custom_author_widget');
+}
 
 
 

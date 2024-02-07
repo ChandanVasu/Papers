@@ -1,0 +1,114 @@
+/* Card wrapper */
+.author-list-container {
+    max-height: 400px; /* Adjust the max height as needed */
+    overflow: auto; /* Add scrollbar when content overflows container */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.author-list-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.author-list-container {
+    scrollbar-width: none;
+}
+
+.author-list-widget {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap; /* Ensure items don't wrap to the next line */
+    gap: 20px;
+    /* Adjust gap between cards */
+}
+
+/* Author card */
+.author-list-widget li {
+    position: relative; /* Add position relative to make the absolute positioning of total-post work */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    min-width: 300px; /* Ensure cards have a minimum width */
+    position: relative;
+}
+
+/* Avatar */
+.author-list-widget li img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-image: linear-gradient(rgb(192, 16, 16), rgb(201, 201, 14), rgb(13, 13, 195), rgb(26, 222, 244));
+    padding: 2px;
+    object-fit: cover; /* Ensure the image covers its container */
+}
+
+/* Author name */
+.author-list-widget li a {
+    color: #333333;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    /* Prevent line breaks */
+    overflow: hidden;
+    /* Hide overflowing text */
+    text-overflow: ellipsis;
+    /* Truncate text with ellipsis */
+}
+
+/* Author biography */
+.author-list-widget li p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Total post */
+.author-list-widget .total-post {
+    position: absolute;
+    bottom: 207px;
+    left: 253px;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(7, 7, 129);
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Truncate text with ellipsis */
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 20px;
+    padding: 10px;
+    z-index: 1;
+    /* Ensure buttons appear above the content */
+    transition: background-color 0.3s ease;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
