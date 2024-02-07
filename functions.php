@@ -67,3 +67,34 @@ if (!function_exists('register_custom_author_widget')) {
 add_action('elementor/elements/categories_registered', 'add_elementor_widget_categories');
 
 
+
+
+function your_theme_register_header_style_customizer($wp_customize) {
+    $wp_customize->add_section('header_section', array(
+        'title' => __('Header Style', 'your-theme'),
+        'priority' => 30,
+    ));
+ 
+    $wp_customize->add_setting('header_style_setting', array(
+        'default' => 'header1', // Set Header Style 1 as default
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+ 
+    $wp_customize->add_control('header_style_control', array(
+        'label' => __('Select Header Style', 'your-theme'),
+        'section' => 'header_section',
+        'settings' => 'header_style_setting',
+        'type' => 'select',
+        'choices' => array(
+            'header1' => __('Header Style 1', 'your-theme'),
+            'header2' => __('Header Style 2', 'your-theme'),
+            'header3' => __('Header Style 3', 'your-theme'),
+            'header4' => __('Header Style 4', 'your-theme'),
+        ),
+    ));
+ }
+ add_action('customize_register', 'your_theme_register_header_style_customizer');
+ 
+
+ 
+ 

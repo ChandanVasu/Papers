@@ -73,6 +73,8 @@
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 50ch;
+    
 }
 
 /* Total post */

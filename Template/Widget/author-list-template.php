@@ -8,7 +8,7 @@ $authors = get_users(['role__in' => $settings['roles'], 'exclude' => explode(','
 
 if (!empty($authors)) {
     ?>
-    <div class="author-list-container">
+    <div class="author-list-container" id="<?php echo esc_attr( $this->get_id() ); ?>">
         <button class="scroll-btn prev-btn"><i class="fas fa-chevron-left"></i></button> <!-- Previous button -->
         <ul class="author-list-widget">
             <?php foreach ($authors as $author) {
@@ -24,7 +24,7 @@ if (!empty($authors)) {
                     <p class="total-post"><?php echo $post_count; ?></p>
                     <a href="<?php echo $author_link; ?>"><?php echo $author->display_name; ?></a>
                     <?php if (!empty($biography)) {
-                        echo '<p>' . $biography . '</p>';
+                        echo '<p class="biography">' . $biography . '</p>';
                     } ?>
                 </li>
             <?php } ?>
@@ -39,3 +39,18 @@ if (!empty($authors)) {
 $output = ob_get_clean();
 echo $output;
 ?>
+
+<script>
+    // Retrieve text length for this widget
+    var maxLength = <?php echo !empty($settings['text_length']) ? $settings['text_length'] : 150; ?>;
+
+    // Trim text in each paragraph
+    var paragraphs = document.querySelectorAll('#<?php echo esc_attr( $this->get_id() ); ?> .biography');
+    paragraphs.forEach(function(paragraph) {
+        var text = paragraph.textContent.trim();
+        if (text.length > maxLength) {
+            text = text.substring(0, maxLength) + '...';
+        }
+        paragraph.textContent = text;
+    });
+</script>

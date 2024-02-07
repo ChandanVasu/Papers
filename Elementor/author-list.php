@@ -54,6 +54,17 @@ class Author_List_Widget extends Widget_Base {
             ]
         );
 
+        // Add control for text length
+        $this->add_control(
+            'text_length',
+            [
+                'label' => __('Text Length', 'your-text-domain'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 150, // Default text length
+                'description' => __('Enter the maximum length of text to display.', 'your-text-domain'),
+            ]
+        );
+
         $this->end_controls_section();
 
         // Add style controls
@@ -82,9 +93,18 @@ class Author_List_Widget extends Widget_Base {
     }
 
     protected function render() {
+        // Get the text length setting value
+        // $settings = $this->get_settings_for_display();
+        // $text_length = !empty($settings['text_length']) ? $settings['text_length'] : 100;
+    
+        // // Pass the text length to the template
+        // $widget_id = $this->get_id();
+        // echo '<script>var textLength_' . $widget_id . ' = ' . $text_length . ';</script>';
+    
         // Include the template file
         include get_template_directory() . '/Template/Widget/author-list-template.php';
     }
+    
     
 
     
