@@ -19,6 +19,12 @@
                 while (have_posts()) :
                     the_post();
 
+                    // Increment post views count
+                    $post_id = get_the_ID();
+                    $views = get_post_meta($post_id, 'post_views', true);
+                    $views = $views ? $views + 1 : 1;
+                    update_post_meta($post_id, 'post_views', $views);
+
                     // Display post title
                     the_title('<h1>', '</h1>');
 
@@ -67,6 +73,12 @@
 
                     // Display post content
                     the_content();
+
+                    // Display post views count
+                    echo '<div class="post-views">';
+                    echo '<span class="views-label">' . esc_html__('Post Views:', 'your-theme-textdomain') . '</span>';
+                    echo '<span class="views-count">' . intval($views) . '</span>';
+                    echo '</div>';
 
                     // Allow comments
 
