@@ -2,28 +2,25 @@
 #header1 {
     background-color: #ffffff;
     /* Background color */
-    height: 60px;
+    height: 55px;
     /* Height of the header */
     padding: 20px;
     /* Padding around the header content */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Box shadow for a subtle elevation effect */
     display: flex;
-    /* Use flexbox to align items */
     align-items: center;
-    /* Center items vertically */
     justify-content: space-between;
     position: -webkit-sticky;
     position: sticky;
     z-index: 1000;
     top: 0;
-
 }
 
 .header1-container {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     max-width: 1350px;
     margin: 0 auto;
@@ -37,20 +34,24 @@
     /* Automatically adjust width to maintain aspect ratio */
 }
 
+.threeline-vasu {
+    display: none;
+}
+
 /* Site title and description */
-.header1-containe .site-branding {
+.header1-container .site-branding {
     flex-grow: 1;
     /* Allow the site branding to grow and occupy remaining space */
 }
 
-.header1-containe .site-branding .site-title {
+.header1-container .site-branding .site-title {
     font-size: 24px;
     /* Font size of the site title */
     margin-bottom: 5px;
     /* Bottom margin */
 }
 
-.header1-containe .site-branding .site-description {
+.header1-container .site-branding .site-description {
     font-size: 14px;
     /* Font size of the site description */
     color: #999;
@@ -70,6 +71,11 @@
     /* Remove default margin */
     padding: 0;
     /* Remove default padding */
+}
+
+.main-navigation-header-1 {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .main-navigation-header-1 li {
@@ -92,3 +98,72 @@
     color: #007bff;
     /* Link color on hover */
 }
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 768px) {
+
+    /* Hide desktop navigation menu */
+    .main-navigation-header-1 {
+        display: none;
+    }
+
+    /* Show mobile navigation menu */
+    #header1 {
+        justify-content: flex-end;
+    }
+
+    .header1-container {
+        flex-grow: 1;
+    }
+
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+
+}
+
+
+
+/* CSS styles for the side navigation menu */
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10000;
+
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
