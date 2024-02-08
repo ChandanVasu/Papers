@@ -9,6 +9,8 @@
     display: none;
 }
 
+
+
 /* Hide scrollbar for Firefox */
 .author-list-container {
     scrollbar-width: none;

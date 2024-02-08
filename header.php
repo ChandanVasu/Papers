@@ -9,7 +9,7 @@
  * @package YourThemeName
  */
 
-$selected_header_style = get_theme_mod('header_style_setting', 'header4'); // Get the selected header style from Customizer
+$selected_header_style = get_theme_mod('header_style_setting', 'header1'); // Get the selected header style from Customizer
 
 ?>
 <!DOCTYPE html>

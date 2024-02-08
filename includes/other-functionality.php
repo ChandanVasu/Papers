@@ -10,6 +10,7 @@ function enqueue_styles_and_scripts() {
     wp_enqueue_style('custom-style-author', get_template_directory_uri() . '/Style/Elementor/author.css');
     wp_enqueue_style('custom-styles-gridpost', get_template_directory_uri() . '/Style/Gridpost.css');
     wp_enqueue_style('custom-styles-comment', get_template_directory_uri() . '/Style/comment_box.css');
+    wp_enqueue_style('Header-css', get_template_directory_uri() . '/Style/Header Css/header1.css');
     wp_enqueue_style('header-css', get_template_directory_uri() . '/Style/header-css.css');
 }
 

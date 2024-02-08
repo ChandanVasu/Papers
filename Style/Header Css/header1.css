@@ -1,0 +1,66 @@
+/* Header container */
+#header1 {
+    background-color: #ffffff; /* Background color */
+    height: 70px; /* Height of the header */
+    padding: 20px; /* Padding around the header content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between;
+}
+
+.header1-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.site-logo img {
+    height: 50px; /* Height of the logo */
+    width: auto; /* Automatically adjust width to maintain aspect ratio */
+}
+
+/* Site title and description */
+.header1-containe .site-branding {
+    flex-grow: 1; /* Allow the site branding to grow and occupy remaining space */
+}
+
+.header1-containe .site-branding .site-title {
+    font-size: 24px; /* Font size of the site title */
+    margin-bottom: 5px; /* Bottom margin */
+}
+
+.header1-containe .site-branding .site-description {
+    font-size: 14px; /* Font size of the site description */
+    color: #999; /* Text color */
+}
+
+/* Navigation menu */
+#site-navigation {
+    margin-left: auto; /* Pushes the navigation menu to the right */
+}
+
+.main-navigation-header-1 ul {
+    list-style: none; /* Remove bullet points from the list */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.main-navigation-header-1 li {
+    display: inline-block; /* Display menu items horizontally */
+    margin-left: 20px; /* Left margin between menu items */
+}
+
+.main-navigation-header-1 a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Link color */
+    font-size: 16px; /* Font size of the menu items */
+}
+
+.main-navigation-header-1 a:hover {
+    color: #007bff; /* Link color on hover */
+}

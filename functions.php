@@ -16,10 +16,12 @@ function theme_setup() {
 add_action('after_setup_theme', 'theme_setup');
 
 
-
+//-----------------Call Function.php include  File --------------
 
 include_once get_template_directory() . '/includes/other-functionality.php';
 include_once get_template_directory() . '/includes/Register-elementor.php';
+include_once get_template_directory() . '/includes/headercontrol.php';
+
 // include_once get_template_directory() . '/includes/Vasux.php';
 
 
@@ -44,6 +46,17 @@ if (!function_exists('register_custom_grid_post_widget')) {
     add_action('elementor/widgets/register', 'register_custom_grid_post_widget');
 }
 
+if (!function_exists('register_treding_view_widget')) {
+    function register_treding_view_widget($widgets_manager) {
+        require_once(__DIR__ . '/Elementor/tradingview-widget.php');
+        $widgets_manager->register_widget_type(new \Custom_TradingView_Widget());
+    }
+
+    add_action('elementor/widgets/register', 'register_treding_view_widget');
+}
+
+// Register Custom Grid Post Widget
+
 if (!function_exists('register_custom_list_post_widget')) {
     function register_custom_list_post_widget($widgets_manager) {
         require_once(__DIR__ . '/Elementor/listpost.php');
@@ -67,34 +80,5 @@ if (!function_exists('register_custom_author_widget')) {
 add_action('elementor/elements/categories_registered', 'add_elementor_widget_categories');
 
 
+///////////////////////-------Heder Chose------------///////////////////////
 
-
-function your_theme_register_header_style_customizer($wp_customize) {
-    $wp_customize->add_section('header_section', array(
-        'title' => __('Header Style', 'your-theme'),
-        'priority' => 30,
-    ));
- 
-    $wp_customize->add_setting('header_style_setting', array(
-        'default' => 'header1', // Set Header Style 1 as default
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
- 
-    $wp_customize->add_control('header_style_control', array(
-        'label' => __('Select Header Style', 'your-theme'),
-        'section' => 'header_section',
-        'settings' => 'header_style_setting',
-        'type' => 'select',
-        'choices' => array(
-            'header1' => __('Header Style 1', 'your-theme'),
-            'header2' => __('Header Style 2', 'your-theme'),
-            'header3' => __('Header Style 3', 'your-theme'),
-            'header4' => __('Header Style 4', 'your-theme'),
-        ),
-    ));
- }
- add_action('customize_register', 'your_theme_register_header_style_customizer');
- 
-
- 
- 

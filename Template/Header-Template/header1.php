@@ -6,10 +6,9 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <header id="masthead" class="site-header" role="banner">
-        <div class="container">
-            <h1>This Is Header1</h1>
-            <div class="site-branding">
+    <header id="header1" style="background-color: <?php echo get_theme_mod('header_background_color_setting', '#ffffff'); ?>">
+        <div class="header1-container">
+            <div class="site-branding headerlogo headerlogo-1">
                 <?php if ( has_custom_logo() ) : ?>
                     <div class="site-logo"><?php the_custom_logo(); ?></div>
                 <?php else : ?>
@@ -21,12 +20,15 @@
                 <?php endif; ?>
                 <p class="site-description"><?php bloginfo( 'description' ); ?></p>
             </div><!-- .site-branding -->
-            <nav id="site-navigation" class="main-navigation" role="navigation">
+            <nav id="site-navigation" class="main-navigation-header-1" role="navigation">
                 <?php
-                    wp_nav_menu( array(
-                        'theme_location' => 'menu-1',
-                        'menu_id'        => 'primary-menu',
-                    ) );
+                   wp_nav_menu(array(
+                       'theme_location' => 'primary-menu',
+                       'menu_id'        => 'primary-menu-id',
+                       'container'      => 'nav',
+                       'container_class'=> 'primary-menu-container',
+                       'menu_class'     => 'primary-menu-class'
+                   ));
             
                 ?>
             </nav><!-- #site-navigation -->

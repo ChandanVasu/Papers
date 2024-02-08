@@ -10,7 +10,7 @@
     <?php get_header(); ?>
 
     <!-- Main Content Container -->
-    <div class="container">
+    <div class="single-post-container">
         <!-- Primary Content Area -->
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
