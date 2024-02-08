@@ -58,7 +58,7 @@ a:-webkit-any-link {
 }
 
 .single-post .custom-thumbnail-class,
-.single-post img {
+.single-post-container  img {
     width: 100%;
     height: auto;
     border-radius: 10px;
