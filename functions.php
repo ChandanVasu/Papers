@@ -111,4 +111,34 @@ function increment_post_views() {
     }
 }
 add_action('wp_head', 'increment_post_views');
+
+
+
+function custom_theme_customize_register($wp_customize) {
+    // Add section for footer settings
+    $wp_customize->add_section('footer_settings', array(
+        'title' => __('Footer Settings', 'custom-theme'),
+        'priority' => 30,
+    ));
+
+    // Add setting for footer template selection
+    $wp_customize->add_setting('footer_template', array(
+        'default' => 'footer1', // Default to footer1
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    // Add control for footer template selection
+    $wp_customize->add_control('footer_template', array(
+        'label' => __('Select Footer Template', 'custom-theme'),
+        'section' => 'footer_settings',
+        'type' => 'select',
+        'choices' => array(
+            'footer1' => __('Footer 1', 'custom-theme'),
+            'footer2' => __('Footer 2', 'custom-theme'),
+            'footer3' => __('Footer 3', 'custom-theme'),
+        ),
+    ));
+}
+add_action('customize_register', 'custom_theme_customize_register');
+
 ?>
