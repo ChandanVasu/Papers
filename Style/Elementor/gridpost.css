@@ -7,7 +7,7 @@
 }
 
 .elementor-grid-post.elementor-grid-post .elementor-grid-post-item {
-    background-color: #f3f8f6;
+    background-color: #ffffff;
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 10px;
@@ -31,8 +31,8 @@
     /* Adjust the left position as needed */
     display: block;
     padding: 10px;
-    background-color: rgba(238, 225, 233, 0.7);
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.451);
+    color: #ffffff;
     font-size: 12px;
     font-weight: bold;
     z-index: 1;
@@ -58,10 +58,16 @@
     -webkit-box-orient: vertical;
     margin-bottom: 10px;
     margin-top: 10px;
+    font-family: 'PT Serif', serif;
+
+}
+
+.elementor-grid-post h1 a:hover{
+    color: rgb(12, 8, 126);
 }
 
 .elementor-grid-post .elementor-grid-author-info {
-    color: #68c4eb;
+    color: #000000;
     font-size: 15px;
     margin-bottom: 10px;
     display: flex;
@@ -72,12 +78,15 @@
 .elementor-grid-post .elementor-grid-author-name{
     margin-left: 10px;
     margin-right: 10px;
+    font-size: 14px;
 }
 
 
 .elementor-grid-post .elementor-grid-author-info img {
     border-radius: 20px;
     height: 30px;
+    border: solid 1px rgb(9, 13, 141, 0.2);
+
 
 }
 

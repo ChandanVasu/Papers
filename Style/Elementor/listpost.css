@@ -4,7 +4,7 @@
 
 .elementor-list-post .elementor-list-post-item {
     display: flex;
-    background-color: #f3f8f6;
+    background-color: #ffffff;
     border: 1px solid #ddd;
     padding: 10px;
     margin: 10px;
@@ -30,6 +30,7 @@
 }
 
 .elementor-list-post h1 a {
+    font-family: 'PT Serif', serif;
     font-weight: bold;
     font-size: 18px;
     color: #100236;
@@ -41,6 +42,9 @@
     /* margin-bottom: -17px;
     margin-top: -17px; */
 }
+.elementor-list-post h1 a:hover{
+    color: rgb(25, 20, 178);
+}
 
 .elementor-list-post-excerpt {
     overflow: hidden;
@@ -50,6 +54,7 @@
 }
 
 .elementor-list-author-info {
+    
     justify-content: start;
     align-items: center;
     display: flex;
@@ -63,6 +68,7 @@
     border-radius: 20px;
     margin-left: 5px;
     margin-right: 10px;
+    border: solid 1px rgb(9, 13, 141, 0.2);
    
 }
 

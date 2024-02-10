@@ -1,4 +1,11 @@
 /* Header container */
+#wpadminbar{
+    z-index: 0;
+}
+
+
+
+
 #header1 {
     background-color: #ffffff;
     /* Background color */
@@ -128,6 +135,12 @@
         display: none;
     }
 
+}
+
+@media screen and (max-width: 1000px){
+    .main-navigation-header-1 {
+        display: none;
+    }
 }
 
 
